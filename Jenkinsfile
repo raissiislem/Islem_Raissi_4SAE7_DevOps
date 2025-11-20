@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven'
+        maven 'MAVEN'   // match the exact name in Jenkins
         jdk 'JDK17'
     }
 
@@ -14,7 +14,6 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Enter the subfolder containing the Maven project
                 dir('student-management') {
                     sh 'mvn clean package -DskipTests'
                 }
@@ -23,7 +22,6 @@ pipeline {
 
         stage('Archive') {
             steps {
-                // Archive the JAR from the subfolder
                 archiveArtifacts artifacts: 'student-management/target/*.jar', fingerprint: true
             }
         }
