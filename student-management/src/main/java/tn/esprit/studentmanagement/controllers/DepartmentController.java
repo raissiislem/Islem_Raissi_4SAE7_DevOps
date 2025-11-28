@@ -27,6 +27,7 @@ public class DepartmentController {
 
     @PutMapping("/updateDepartment")
     public Department updateDepartment(@RequestBody Department department) {
+        
         return departmentService.saveDepartment(department);
     }
 
